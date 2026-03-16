@@ -1,15 +1,16 @@
 import mesa
 import numpy as np
 from mesa.visualization import SolaraViz, make_space_component
+from mesa.visualization.components import AgentPortrayalStyle
 
 from model import ConwayModel
 
 def agent_portrayal(agent):
-    return {
-        "color": "white" if agent.state == 0 else "black",
-        "marker": "s",
-        "size": 40,
-    }
+    return AgentPortrayalStyle(
+        color="white" if agent.state == 0 else "black",
+        marker="s",
+        size=100,
+    )
 
 def post_process(ax):
     ax.set_aspect("equal")
@@ -24,7 +25,7 @@ model_params = {
     },
     "width": {
         "type": "SliderInt",
-        "value": 100,
+        "value": 20,
         "label": "Width",
         "min": 5,
         "max": 100,
@@ -32,7 +33,7 @@ model_params = {
     },
     "height": {
         "type": "SliderInt",
-        "value": 100,
+        "value": 20,
         "label": "Height",
         "min": 5,
         "max": 100,
