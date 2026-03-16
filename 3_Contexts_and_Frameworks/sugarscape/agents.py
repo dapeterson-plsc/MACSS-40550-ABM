@@ -1,6 +1,6 @@
 import math
 ## Using experimental agent type with native "cell" property that saves its current position in cellular grid
-from mesa.experimental.cell_space import CellAgent
+from mesa.discrete_space import CellAgent
 
 ## Helper function to get distance between two cells
 def get_distance(cell_1, cell_2):
@@ -61,6 +61,5 @@ class SugarAgent(CellAgent):
     def see_if_die(self):
         if self.sugar <= 0:
             self.remove()
-    
     
         
