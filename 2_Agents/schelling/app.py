@@ -5,14 +5,15 @@ from mesa.visualization import (
     make_space_component,
     make_plot_component,
 )
+from mesa.visualization.components import AgentPortrayalStyle
 
 ## Define agent portrayal: color, shape, and size
 def agent_portrayal(agent):
-    return {
-        "color": "blue" if agent.type == 1 else "red",
-        "marker": "s",
-        "size": 40,
-    }
+    return AgentPortrayalStyle(
+        color = "blue" if agent.type == 1 else "red",
+        marker= "s",
+        size= 75,
+    )
 
 ## Enumerate variable parameters in model: seed, grid dimensions, population density, agent preferences, vision, and relative size of groups.
 model_params = {
@@ -23,7 +24,7 @@ model_params = {
     },
     "width": {
         "type": "SliderInt",
-        "value": 50,
+        "value": 30,
         "label": "Width",
         "min": 5,
         "max": 100,
@@ -31,7 +32,7 @@ model_params = {
     },
     "height": {
         "type": "SliderInt",
-        "value": 50,
+        "value": 30,
         "label": "Height",
         "min": 5,
         "max": 100,
