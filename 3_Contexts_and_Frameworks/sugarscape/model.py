@@ -4,10 +4,9 @@ import numpy as np
 
 import mesa
 from agents import SugarAgent
-## Using experimental cell space for this model that enforces von Neumann neighborhoods
-from mesa.experimental.cell_space import OrthogonalVonNeumannGrid
-## Use experimental space feature that allows us to save sugar as a property of the grid spaces
-from mesa.experimental.cell_space.property_layer import PropertyLayer
+## Using discrete cell space for this model that enforces von Neumann neighborhoods
+from mesa.discrete_space import OrthogonalVonNeumannGrid
+from mesa.discrete_space.property_layer import PropertyLayer
 
 class SugarScapeModel(mesa.Model):
     ## Helper function to calculate Gini coefficient, used in plot
@@ -31,7 +30,7 @@ class SugarScapeModel(mesa.Model):
         vision_max=5,
         seed = None
     ):
-        super().__init__(seed=seed)
+        super().__init__(rng=seed)
         ## Instantiate model parameters
         self.width = width
         self.height = height
@@ -50,6 +49,7 @@ class SugarScapeModel(mesa.Model):
         self.grid.add_property_layer(
             PropertyLayer.from_data("sugar", self.sugar_distribution)
         )
+
         ## Create agents, give them random properties, and place them randomly on the map
         SugarAgent.create_agents(
             self,
