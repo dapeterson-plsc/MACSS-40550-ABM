@@ -3,8 +3,8 @@ from agents import ConwayAgent
 from mesa.space import SingleGrid
 
 class ConwayModel(Model):
-    def __init__(self, width = 100, height = 100, start_alive = 0.3, seed = None):
-        super().__init__(seed = seed)
+    def __init__(self, width = 20, height = 20, start_alive = 0.3, seed = None):
+        super().__init__(rng = seed)
         self.grid = SingleGrid(width, height, torus = True)
         for cont, (x, y) in self.grid.coord_iter():
             conway = ConwayAgent(self, (x, y))
@@ -17,4 +17,4 @@ class ConwayModel(Model):
 
     def step(self):
         self.agents.do("determine_next_state")
-        self.agents.do("live_or_die") 
+        self.agents.do("live_or_die")      
