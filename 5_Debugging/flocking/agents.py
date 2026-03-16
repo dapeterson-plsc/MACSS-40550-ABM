@@ -3,7 +3,6 @@ import numpy as np
 ## Using experimental continuous space implementation
 from mesa.experimental.continuous_space import ContinuousSpaceAgent
 
-
 class Boid(ContinuousSpaceAgent):
     ## Define initiation. Inherit space and model properties from parent class
     def __init__(
