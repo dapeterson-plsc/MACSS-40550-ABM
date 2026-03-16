@@ -5,13 +5,16 @@ from mesa.visualization import (
     make_plot_component,
     make_space_component,
 )
+from mesa.visualization.components import AgentPortrayalStyle
+
 ## Define agent portrayal (color as function of cooperation, shape, size
 def agent_portrayal(agent):
-    return {
-        "color": "blue" if agent.move == "C" else "red",
-        "marker": "s",
-        "size": 40,
-    }
+    return AgentPortrayalStyle(
+        color = "blue" if agent.move == "C" else "red",
+        marker= "s",
+        size= 40,
+    )
+
 ## List model aprameters: seed, grid size, activation regime
 model_params = {
     "seed": {
@@ -19,8 +22,8 @@ model_params = {
         "value": 42,
         "label": "Random Seed",
     },
-    "width": Slider("Grid Width", value=50, min=10, max=100, step=1),
-    "height": Slider("Grid Height", value=50, min=10, max=100, step=1),
+    "width": Slider("Grid Width", value=40, min=10, max=100, step=1),
+    "height": Slider("Grid Height", value=40, min=10, max=100, step=1),
     "order": {
         "type": "Select",
         "value": "Simultaneous",
@@ -29,7 +32,7 @@ model_params = {
     },
 }
 ## Define spatial visualization
-SpaceGraph = make_space_component(agent_portrayal=agent_portrayal)
+SpaceGraph = make_space_component(agent_portrayal=agent_portrayal, draw_grid=False)
 ## Define plot of cooperation over time
 CoopPlot = make_plot_component("Cooperators")
 ## Instantiate model
