@@ -1,7 +1,6 @@
 import mesa
 from agents import PDAgent
-from mesa.experimental.cell_space import OrthogonalMooreGrid
-
+from mesa.discrete_space import OrthogonalMooreGrid
 
 class PDModel(mesa.Model):
     ## Define possible activation regimes
@@ -9,8 +8,8 @@ class PDModel(mesa.Model):
     ## Define payoffs. Note that model results are sensitive to these! Making DD too high or lowering CD can make systems devolve into defection
     payoff = {("C", "C"): 1, ("C", "D"): 0, ("D", "C"): 1.6, ("D", "D"): 0}
     ## Initialize model, inheriting seed property from parent class
-    def __init__(self, width=50, height=50, order="Simultaneous", payoffs=None, seed=None):
-        super().__init__(seed=seed)
+    def __init__(self, width=40, height=40, order="Simultaneous", payoffs=None, seed=None):
+        super().__init__(rng=seed)
         ## Define Acivation order
         self.order = order
         ## Initialize grid
