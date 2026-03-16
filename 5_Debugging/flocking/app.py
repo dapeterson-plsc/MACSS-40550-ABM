@@ -1,16 +1,15 @@
 from model import BoidFlockers
 from mesa.visualization import Slider, SolaraViz, make_space_component
+from mesa.visualization.components import AgentPortrayalStyle
 
-
-def boid_draw(agent):
+def agent_portrayal(agent):
     neighbors = len(agent.neighbors)
-
-    if neighbors <= 1:
-        return {"color": "blue", "size": 20}
-    elif neighbors >= 2:
-        return {"color": "yellow", "size": 20}
-
-
+    return AgentPortrayalStyle(
+        color = "blue" if neighbors <= 1 else "yellow",
+        marker= "o",
+        size= 20,
+    )
+    
 model_params = {
     "seed": {
         "type": "InputText",
@@ -53,7 +52,7 @@ model = BoidFlockers()
 
 page = SolaraViz(
     model,
-    components=[make_space_component(agent_portrayal=boid_draw, backend="matplotlib")],
+    components=[make_space_component(agent_portrayal=agent_portrayal, backend="matplotlib")],
     model_params=model_params,
     name="Boid Flocking Model",
 )
