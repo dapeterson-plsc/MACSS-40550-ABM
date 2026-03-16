@@ -1,2 +1,2 @@
 numpy
-mesa=3.1.4
+mesa=3.5.0
