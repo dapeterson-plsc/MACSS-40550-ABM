@@ -1,21 +1,21 @@
 from model import SugarScapeModel
 from mesa.visualization import Slider, SolaraViz, make_plot_component
 from mesa.visualization.components.matplotlib_components import make_mpl_space_component
+from mesa.visualization.components import AgentPortrayalStyle, PropertyLayerStyle
 
 ## Define agent portrayal (color, size, shape)
 def agent_portrayal(agent):
-    return {"marker": "o", 
-            "color": "red", 
-            "size": 20}
+    return AgentPortrayalStyle(
+        color="red",
+        marker="o",
+        size=10,
+    )
 
 ## Define map portrayal, with yellower squares having more sugar than white squares
-propertylayer_portrayal = {
-    "sugar": {"color": "yellow", 
-              "alpha": 0.8, 
-              "colorbar": True, 
-              "vmin": 0, 
-              "vmax": 10},
-}
+def propertylayer_portrayal(layer):
+    return PropertyLayerStyle(
+        color="yellow", alpha=0.8, colorbar=True, vmin=0, vmax=10
+    )
 
 ## Define model space component based on above
 sugarscape_space = make_mpl_space_component(
