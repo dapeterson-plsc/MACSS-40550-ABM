@@ -8,7 +8,7 @@ In this version of the model, consumed sugar grows back at a rate of one unit pe
 
 ## Your Task
 
-Your task is to think of a non-trivial theoretical modification to the spatial map context in the model and implement it. This could mean changing the initial distribution of sugar, changing the growback rule, changing the borders of the map, or anything else. Basically, do not touch the agents.py file, but change anything you want to in model.py. Come up with something interesting, and use the app to see if your assumptions are right!
+Your task is to think of a non-trivial theoretical modification to the spatial map context in the model and implement it. This could mean changing the initial distribution of sugar, changing the growback rule, changing the borders of the map, or anything else. Basically, do not touch the agents.py file, but change anything you want to in model.py (or in the text file containing the sugar distribution). Come up with something interesting, and use the app to see if your assumptions are right!
 
 ## How to Run
 
@@ -23,3 +23,4 @@ To run the model interactively once you have a complete agents file, run the fol
 * ``agents.py``: Contains the agent class
 * ``model.py``: Contains the model class
 * ``app.py``: Defines classes for visualizing the model in the browser via Solara, and instantiates a visualization server.
+* ``sugar-map.txt``: Raster file with the default sugar distibution for the model
