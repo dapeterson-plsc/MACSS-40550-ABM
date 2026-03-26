@@ -4,6 +4,8 @@ from mesa.space import SingleGrid
 
 class ConwayModel(Model):
     def __init__(self, width = 20, height = 20, start_alive = 0.3, seed = None):
+        if seed is not None:
+            seed = int(seed)
         super().__init__(rng = seed)
         self.grid = SingleGrid(width, height, torus = True)
         for cont, (x, y) in self.grid.coord_iter():
