@@ -22,7 +22,7 @@ This model follows a simple series of rules and demonstrates how, using a few si
 ```
      pip install -r requirements.txt
 ```
-2) To run the model interactively, run ``python conway/run.py`` in this directory. e.g.
+2) To run the model interactively, run the following code in this directory:
 
 ```
      solara run app.py
