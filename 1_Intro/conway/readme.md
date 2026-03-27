@@ -28,8 +28,6 @@ This model follows a simple series of rules and demonstrates how, using a few si
      solara run app.py
 ```
 
-Then open your browser to [http://127.0.0.1:8513/](http://127.0.0.1:8513/) and press Reset, then Start. (if you would like, you can change the number of agents, just click 'reset' after you change the number to set up the model.)
-
 ## Files
 **agents.py** sets up agents (cellular automata) for the game, including the rules of living / dying
 
