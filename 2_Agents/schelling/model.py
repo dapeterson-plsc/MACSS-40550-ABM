@@ -6,7 +6,9 @@ from mesa.datacollection import DataCollector
 class SchellingModel(Model):
     ## Define initiation, requiring all needed parameter inputs
     def __init__(self, width = 30, height = 30, density = 0.7, desired_share_alike = 0.5, group_one_share = 0.7, radius = 1, seed = None):
-        ## Inherit seed trait from parent class
+        ## Inherit seed trait from parent class and ensure seed is integer
+        if seed is not None:
+            seed = int(seed)
         super().__init__(rng=seed)
         ## Define parameter values for model instance
         self.width = width
