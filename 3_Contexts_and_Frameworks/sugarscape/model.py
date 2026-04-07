@@ -30,6 +30,8 @@ class SugarScapeModel(mesa.Model):
         vision_max=5,
         seed = None
     ):
+        if seed is not None:
+            seed = int(seed)
         super().__init__(rng=seed)
         ## Instantiate model parameters
         self.width = width
