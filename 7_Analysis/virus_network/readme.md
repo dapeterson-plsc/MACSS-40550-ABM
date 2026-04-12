@@ -12,12 +12,7 @@ Then, if you have time, run a short batch run of the model varying network type 
 
 ## How to Run
 
-BE SURE TO INSTALL REQUIREMENTS FIRST! If you don't see the visualization, check that you have the requirements installed in your virtual environment!
-```
-    pip install -r requirements.txt
-```
-
-Launch the model (note that this will produce an error, as described above):
+Launch the model:
 ```
     solara run app.py
 ```
